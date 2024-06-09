@@ -12,8 +12,10 @@ public class Main {
         driver.manage().window().maximize();
         System.out.println("Adres strony to "+ driver.getCurrentUrl());
         System.out.println("tytuł strony to " + driver.getTitle());
-        WebElement account = driver.findElement(By.className("skip-account"));
-        account.click();
-        driver.quit();
+        WebElement accountLink = driver.findElement(By.className("skip-account"));
+        WebElement logIn = driver.findElement(By.cssSelector("[title='Log In']"));
+        accountLink.click();
+        logIn.click();
     }
 }
+
