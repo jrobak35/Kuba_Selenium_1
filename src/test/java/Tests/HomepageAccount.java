@@ -1,6 +1,5 @@
 package Tests;
 
-import PageObjects.LoginPage;
 import PageObjects.MadisonIslandHomePage;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -8,30 +7,35 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class LoginFailedTest {
+public class HomepageAccount {
     private static WebDriver driver;
     private static MadisonIslandHomePage madisonIslandHomePage;
-    private static LoginPage loginPage;
 
     @BeforeAll
     public static void setUp() {
-        // Inicjalizacja WebDriver
+        // Path to driver
         System.setProperty("webdriver.chrome.driver", "C:/Users/robak/IdeaProjects/Kuba_Selenium_1/chromedriver/chromedriver.exe");
+
+        // Session's initialisation
         driver = new ChromeDriver();
+        driver.get("http://demo-store.seleniumacademy.com/");
 
         // Inicjalizacja obiektów Page Object
         madisonIslandHomePage = new MadisonIslandHomePage(driver);
-        loginPage = new LoginPage(driver);
-
-        // Otwórz stronę główną
-        madisonIslandHomePage.open();
     }
 
     @Test
     public void testGoToLoginPage() {
         // Akcja na stronie głównej prowadząca do strony logowania
+        // madisonIslandHomePage = new MadisonIslandHomePage(driver);
         madisonIslandHomePage.selectLogin();
     }
+
+    @Test
+    public void testHoverOverAccountOptions() {
+        madisonIslandHomePage.hoverOverAccountOptions();
+    }
+
 
     @AfterAll
     public static void tearDown() {

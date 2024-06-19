@@ -20,6 +20,9 @@ public class LoginPage {
         driver.get("http://demo-store.seleniumacademy.com/customer/account/login/");
     }
 
+    public void checkTitle() {
+        assert driver.getTitle().equals("Customer Login");
+    }
     public void login(String username, String password) {
         emailAddress.sendKeys(username);
         passwordInput.sendKeys(password);
