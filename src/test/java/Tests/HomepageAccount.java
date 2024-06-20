@@ -27,8 +27,9 @@ public class HomepageAccount {
 
     @Test
     @Order(1)
-    public void testHoverOverAccountOptions() {
+    public void testHoverOverAccountOptions() throws InterruptedException {
         madisonIslandHomePage.hoverOverAccountOptions();
+        Thread.sleep(2000);
     }
 
     @Test

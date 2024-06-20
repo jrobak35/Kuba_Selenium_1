@@ -65,6 +65,7 @@ public class MadisonIslandHomePage {
         actions.moveToElement(checkoutOption).perform();
         actions.moveToElement(registerOption).perform();
         actions.moveToElement(logInOption).perform();
+        accountLink.click();
     }
 }
 
