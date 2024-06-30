@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 public class MadisonIslandHomePage {
     private WebDriver driver;
@@ -14,6 +15,7 @@ public class MadisonIslandHomePage {
     private WebElement checkoutOption;
     private WebElement registerOption;
     private WebElement logInOption;
+    private WebElement languageDropdown;
 
     public MadisonIslandHomePage(WebDriver driver) {
         this.driver = driver;
@@ -24,10 +26,18 @@ public class MadisonIslandHomePage {
         this.checkoutOption = driver.findElement(By.cssSelector("[title = 'Checkout']"));
         this.registerOption = driver.findElement(By.cssSelector("[title = 'Register']"));
         this.logInOption = driver.findElement(By.cssSelector("[title='Log In']"));
+        this.languageDropdown = driver.findElement(By.id("select-language"));
     }
     public void open() {
         driver.get("http://demo-store.seleniumacademy.com/");
     }
+
+    public void setLanguageToGerman() {
+        languageDropdown.click();
+        Select dropdown = new Select(languageDropdown);
+        dropdown.selectByIndex(2);
+    }
+
 
     public void selectMyAccount() {
         accountLink.click();
